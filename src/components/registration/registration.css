@@ -1,0 +1,21 @@
+.reg {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 100px auto;
+  width: 40%;
+}
+.reg .header {
+  font-size: 1.2em;
+  font-weight: 500;
+}
+.reg .reg-btns {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+.reg .reg-btns button {
+  margin-left: auto;
+}
+/*# sourceMappingURL=registration.css.map */

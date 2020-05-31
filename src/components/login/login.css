@@ -1,0 +1,27 @@
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 100px auto;
+  width: 40%;
+}
+.login .header {
+  font-size: 1.2em;
+  font-weight: 500;
+}
+.login-btns {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  width: 100%;
+}
+.login-btns .forget {
+  font-size: 0.7em;
+  font-weight: 700;
+  color: gray;
+}
+.login-btns button {
+  margin-left: auto;
+}
+/*# sourceMappingURL=login.css.map */

@@ -1,0 +1,35 @@
+.navbar {
+  background: #ba66f4;
+  height: 60px;
+  width: 100%;
+  padding: 0;
+  box-shadow: 0px 2px 5px 0px rgba(50, 50, 50, 0.75);
+}
+.navbar-flex {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  font-size: 1.2em;
+  font-weight: 500;
+  color: white;
+}
+.navbar-flex-logo {
+  background: url("../../assets/img/logo.png") center center no-repeat;
+  background-size: cover;
+  height: 38px;
+  width: 38px;
+  margin-right: 10px;
+}
+.navbar-flex-right {
+  display: flex;
+  margin-left: auto;
+}
+.navbar-flex-right-signin {
+  margin-right: 15px;
+}
+.navbar-flex-right-signin,
+.navbar-flex-right-signup,
+.navbar-flex-right-logout {
+  cursor: pointer;
+}
+/*# sourceMappingURL=navbar.css.map */
