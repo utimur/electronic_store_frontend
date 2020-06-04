@@ -1,0 +1,25 @@
+.leftbar {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  align-items: center;
+  height: fit-content;
+}
+.leftbar-brands {
+  margin-top: 30px;
+}
+.leftbar-types,
+.leftbar-brands {
+  background: #ba66f4;
+  border-radius: 4px;
+  box-shadow: 3px 3px 4px 0px rgba(50, 50, 50, 0.5);
+  margin-right: 20px;
+  padding: 10px 20px;
+  width: 150px;
+  text-align: center;
+}
+.leftbar li {
+  list-style-type: none;
+  margin: 3px;
+}
+/*# sourceMappingURL=leftbarTypes.css.map */

@@ -7,6 +7,7 @@
 }
 .navbar-flex {
   display: flex;
+  height: 100%;
   width: 100%;
   align-items: center;
   font-size: 1.2em;
@@ -23,13 +24,56 @@
 .navbar-flex-right {
   display: flex;
   margin-left: auto;
+  align-items: center;
 }
-.navbar-flex-right-signin {
+.navbar-flex-right-busket,
+.navbar-flex-right-favor {
+  background: no-repeat center center;
+  height: 30px;
+  width: 30px;
+  background-size: cover;
+  cursor: pointer;
+}
+.navbar-flex-right-busket {
+  background-image: url("../../assets/img/busket.png");
+  margin-right: 15px;
+}
+.navbar-flex-right-favor {
+  background-image: url("../../assets/img/favourites.png");
+  margin-right: 30px;
+}
+.navbar-flex-right-signin,
+.navbar-flex-right-admin {
   margin-right: 15px;
 }
 .navbar-flex-right-signin,
 .navbar-flex-right-signup,
+.navbar-flex-right-logout,
+.navbar-flex-right-admin {
+  cursor: pointer;
+}
 .navbar-flex-right-logout {
+  width: 40px;
+  height: 40px;
+  background: white no-repeat center center;
+  background-size: cover;
+  border-radius: 100px;
+  position: relative;
+}
+.navbar-flex-right-logout .droplist {
+  background: #ba66f4;
+  cursor: auto;
+  display: none;
+  position: absolute;
+  left: -50px;
+  top: 60px;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+}
+.navbar-flex-right-logout .droplist-item {
+  color: white;
+  margin: 5px;
   cursor: pointer;
 }
 /*# sourceMappingURL=navbar.css.map */

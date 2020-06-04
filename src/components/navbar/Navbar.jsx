@@ -1,23 +1,39 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import './navbar.css';
 import {useDispatch, useSelector} from "react-redux";
+import DropList from "../../utils/dropList/DropList";
+import {wrapMapToPropsConstant} from "react-redux/lib/connect/wrapMapToProps";
 
 const Navbar = (props) => {
 
     const isAuth = useSelector(state => state.userReducer.isAuth)
+    const isAdmin = useSelector(state => state.userReducer.isAdmin)
+    const currentUser = useSelector(state => state.userReducer.currentUser)
     const dispatch = useDispatch()
+    const [dropListVisible, setDropListVisible] = useState("none")
 
-    useEffect(()=>{}, [isAuth])
+    useEffect(()=>{}, [isAuth, isAdmin])
 
     function loginClick() {
         props.history.push("/login")
     }
-    function logoutClick() {
-        props.history.push("/login")
+    function avatarClick() {
+        if(dropListVisible=="none")
+            setDropListVisible("flex")
+        else
+            setDropListVisible("none")
+    }
+
+    function logOutClick() {
+        props.history.push("/login");
         dispatch({type:"LOGOUT"})
     }
     function signupClick() {
         props.history.push("/registration")
+    }
+
+    function adminClick() {
+        props.history.push("/admin")
     }
 
     return (
@@ -33,10 +49,19 @@ const Navbar = (props) => {
                         </div>
                                 :
                         <div className={"navbar-flex-right"}>
-                            <div className="navbar-flex-right-logout" onClick={()=> logoutClick()}>Выход</div>
+                            {isAdmin && <div className="navbar-flex-right-admin" onClick={()=> adminClick()}>Админ </div>}
+                            <div className="navbar-flex-right-busket"/>
+                            <div className="navbar-flex-right-favor"/>
+                            <div className="navbar-flex-right-logout"
+                                 style={{backgroundImage: `url("data:image/jpg;base64,${currentUser.avatar}")`}}
+                                 onClick={()=> avatarClick()}>
+                                <div className="droplist" style={{display: dropListVisible}}>
+                                    <div className="droplist-item" onClick={()=>props.history.push("/profile")}>Профиль</div>
+                                    <div className="droplist-item" onClick={()=>logOutClick()}>Выход</div>
+                                </div>
+                            </div>
                         </div>
                     }
-
                 </div>
             </div>
         </div>
@@ -44,3 +69,4 @@ const Navbar = (props) => {
 };
 
 export default Navbar;
+

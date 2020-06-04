@@ -1,0 +1,29 @@
+.addzone {
+  width: 100%;
+
+  &-type, &-brand, &-device, &-properties {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    select{
+      align-self: start;
+    }
+  }
+
+  &-device{
+
+    &-inputs{
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  .addzone-properties {
+
+  }
+
+  &-header {
+    font-weight: 500;
+  }
+}

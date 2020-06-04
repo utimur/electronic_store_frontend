@@ -1,0 +1,26 @@
+.addzone {
+  width: 100%;
+}
+.addzone-type,
+.addzone-brand,
+.addzone-device,
+.addzone-properties {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.addzone-type select,
+.addzone-brand select,
+.addzone-device select,
+.addzone-properties select {
+  align-self: start;
+}
+.addzone-device-inputs {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.addzone-header {
+  font-weight: 500;
+}
+/*# sourceMappingURL=addZone.css.map */

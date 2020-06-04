@@ -1,0 +1,26 @@
+@import "../../utils/colors";
+
+.leftbar {
+
+  display: flex;
+  flex-direction: column;
+  color: white;
+  align-items: center;
+  height: fit-content;
+  &-brands {
+    margin-top: 30px;
+  }
+  &-types, &-brands {
+    background: @main-color;
+    border-radius: 4px;
+    box-shadow: 3px 3px 4px 0px rgba(50, 50, 50, 0.5);
+    margin-right: 20px;
+    padding: 10px 20px;
+    width: 150px;
+    text-align: center;
+  }
+  li {
+    list-style-type: none;
+    margin: 3px;
+  }
+}

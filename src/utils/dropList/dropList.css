@@ -1,0 +1,15 @@
+.droplist {
+  width: 150px;
+  background: #ba66f4;
+  display: none;
+  position: absolute;
+  left: -50px;
+  top: 60px;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+}
+.droplist-item {
+  color: white;
+}
+/*# sourceMappingURL=dropList.css.map */

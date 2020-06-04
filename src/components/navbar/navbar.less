@@ -8,6 +8,7 @@
   box-shadow: 0px 2px 5px 0px rgba(50, 50, 50, 0.75);
   &-flex {
     display: flex;
+    height: 100%;
     width: 100%;
     align-items: center;
     font-size: 1.2em;
@@ -23,12 +24,56 @@
     &-right{
       display: flex;
       margin-left: auto;
-      &-signin {
+      align-items: center;
+
+      &-busket, &-favor {
+        background: no-repeat center center;
+        height: 30px;
+        width: 30px;
+        background-size: cover;
+        cursor: pointer;
+      }
+      &-busket {
+        background-image: url("../../assets/img/busket.png");
+        margin-right: 15px;
+      }
+      &-favor {
+        background-image: url("../../assets/img/favourites.png");
+        margin-right: 30px;
+      }
+
+      &-signin, &-admin {
         margin-right: 15px;
       }
 
-      &-signin, &-signup, &-logout{
+      &-signin, &-signup, &-logout, &-admin{
         cursor: pointer;
+      }
+      &-logout {
+        width: 40px;
+        height: 40px;
+        background: white no-repeat center center;
+        background-size: cover;
+        border-radius: 100px;
+        position: relative;
+        .droplist {
+          background: @main-color;
+          cursor: auto;
+          display: none;
+          //display: flex;
+          position: absolute;
+          left: -50px;
+          top: 60px;
+          flex-direction: column;
+          align-items: center;
+          border-radius: 10px;
+
+          &-item {
+            color: white;
+            margin: 5px;
+            cursor: pointer;
+          }
+        }
       }
     }
   }
