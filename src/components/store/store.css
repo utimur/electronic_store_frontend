@@ -1,0 +1,36 @@
+.store {
+  width: 100%;
+  display: flex;
+}
+.store .store-flex {
+  width: 100% ;
+}
+.store .store-flex .devices {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.store .store-flex .pages {
+  margin-left: 30px;
+  font-weight: 500;
+  font-size: 1.1em;
+  color: gray;
+  display: flex;
+  margin-top: 15px;
+}
+.store .store-flex .pages .current-page {
+  font-weight: 900;
+  color: black;
+}
+.store .store-flex .pages .page,
+.store .store-flex .pages .current-page {
+  padding: 8px 16px;
+  margin-left: 3px;
+  border: 2px #ba66f4 solid;
+  border-radius: 100px;
+  cursor: pointer;
+}
+.store .store-flex .pages .page {
+  font-weight: 500;
+}
+/*# sourceMappingURL=store.css.map */

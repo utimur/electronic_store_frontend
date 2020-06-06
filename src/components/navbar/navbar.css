@@ -14,6 +14,9 @@
   font-weight: 500;
   color: white;
 }
+.navbar-flex-name {
+  cursor: pointer;
+}
 .navbar-flex-logo {
   background: url("../../assets/img/logo.png") center center no-repeat;
   background-size: cover;
@@ -33,6 +36,12 @@
   width: 30px;
   background-size: cover;
   cursor: pointer;
+  transition: 0.5s;
+}
+.navbar-flex-right-busket:hover,
+.navbar-flex-right-favor:hover {
+  width: 35px;
+  height: 35px;
 }
 .navbar-flex-right-busket {
   background-image: url("../../assets/img/busket.png");

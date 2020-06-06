@@ -1,0 +1,65 @@
+.device {
+  display: flex;
+  width: 33%;
+  margin-bottom: 15px;
+  justify-content: center;
+}
+.device-flex {
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  width: 225px;
+  position: relative;
+}
+.device-flex-btns {
+  width: fit-content;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: flex;
+}
+.device-flex-btns-basket {
+  background: url("../../../assets/img/busket-device.png") no-repeat center center;
+  background-size: cover;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+.device-flex-btns-favour {
+  background: url("../../../assets/img/favourites-device.png") no-repeat center center;
+  background-size: cover;
+  width: 32px;
+  height: 32px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.device-flex img {
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+  object-position: center;
+}
+.device-flex-desc {
+  margin-top: 3px;
+  display: flex;
+  font-size: 0.8em;
+}
+.device-flex-desc-star {
+  margin-left: auto;
+  margin-right: 3px;
+  height: 20px;
+  width: 20px;
+  background: url("../../../assets/img/star.png") no-repeat center center;
+  background-size: cover;
+}
+.device-flex-desc-rate {
+  font-weight: 700;
+}
+.device-flex-name {
+  font-weight: 700;
+}
+.device-flex-price {
+  font-weight: 500;
+  color: gray;
+}
+/*# sourceMappingURL=device.css.map */

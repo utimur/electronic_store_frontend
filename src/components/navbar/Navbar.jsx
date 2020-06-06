@@ -41,7 +41,7 @@ const Navbar = (props) => {
             <div className="wrap">
                 <div className="navbar-flex">
                     <div className="navbar-flex-logo"/>
-                    <div className="navbar-flex-name" >Device store</div>
+                    <div className="navbar-flex-name" onClick={()=>props.history.push("/store")}>Device store</div>
                     { isAuth == false ?
                         <div className={"navbar-flex-right"}>
                             <div className="navbar-flex-right-signin" onClick={()=>loginClick()}>Вход</div>
@@ -50,8 +50,8 @@ const Navbar = (props) => {
                                 :
                         <div className={"navbar-flex-right"}>
                             {isAdmin && <div className="navbar-flex-right-admin" onClick={()=> adminClick()}>Админ </div>}
-                            <div className="navbar-flex-right-busket"/>
-                            <div className="navbar-flex-right-favor"/>
+                            <div className="navbar-flex-right-busket" onClick={()=>props.history.push("/basket")}/>
+                            <div className="navbar-flex-right-favor" onClick={()=>props.history.push("/favour")}/>
                             <div className="navbar-flex-right-logout"
                                  style={{backgroundImage: `url("data:image/jpg;base64,${currentUser.avatar}")`}}
                                  onClick={()=> avatarClick()}>

@@ -1,40 +1,47 @@
 import React, {useEffect, useState} from "react";
 import "./leftbarTypes.css";
 import {useDispatch, useSelector} from "react-redux";
-import {setBrands, setDeviceTypes} from "../../actions/device";
+import {setBrands, setBrandsVisible, setCurrentPage, setDeviceTypes, setSelectedType} from "../../actions/device";
+import {NavLink} from "react-router-dom";
 
-const LeftbarTypes = (props) => {
+const Leftbar = (props) => {
     const isAuth = useSelector(state => state.userReducer.isAuth)
     const deviceTypes = useSelector(state => state.deviceReducer.deviceTypes)
     const brands = useSelector(state => state.deviceReducer.brands)
     const dispatch = useDispatch()
-    const [isBrandsVisible, setIsBrandsVisible] = useState("false")
-    const [selectedType, setSelectedType] = useState()
+    const isBrandsVisible = useSelector(state => state.deviceReducer.isBrandsVisible)
+    const selectedType = useSelector(state => state.deviceReducer.selectedType)
 
     useEffect(()=>{
         dispatch(setDeviceTypes())
         dispatch(setBrands())
+        dispatch(setCurrentPage(1))
     }, [])
 
     function typeClick(type) {
-        setIsBrandsVisible(true)
-        setSelectedType(type.name)
+        dispatch(setBrandsVisible(true))
+        dispatch(setSelectedType(type.name))
+        dispatch(setCurrentPage(1))
     }
 
     return (
         <div className="leftbar">
             <div className="leftbar-types">
                 {deviceTypes.map(type =>
-                    <li onClick={()=>typeClick(type)}>{type.name}</li>
+                    <NavLink to={`/store/${type.id}`}>
+                        <li onClick={()=>typeClick(type)}>{type.name}</li>
+                    </NavLink>
                 )}
             </div>
             <div style={isBrandsVisible == true ? {display: "block"} : {display: "none"}} className="leftbar-brands">
                 {brands.filter(brand => brand.deviceTypeName == selectedType).map(brand =>
-                    <li>{brand.name}</li>
+                    <NavLink to={`/store/${brand.typeId}/${brand.id}`}>
+                        <li>{brand.name}</li>
+                    </NavLink>
                 )}
             </div>
         </div>
     );
 }
 
-export default LeftbarTypes;
+export default Leftbar;

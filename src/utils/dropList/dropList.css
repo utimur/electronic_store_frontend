@@ -8,6 +8,7 @@
   flex-direction: column;
   align-items: center;
   border-radius: 10px;
+  z-index: 999;
 }
 .droplist-item {
   color: white;

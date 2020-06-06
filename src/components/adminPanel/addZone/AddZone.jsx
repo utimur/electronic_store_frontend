@@ -4,7 +4,15 @@ import Select from "../../../utils/select/Select";
 import Button from "../../../utils/button/Button";
 import Input from "../../../utils/input/Input";
 import {useDispatch, useSelector} from "react-redux";
-import {addBrand, addDevice, addDeviceType, setBrands, setDevices, setDeviceTypes} from "../../../actions/device";
+import {
+    addBrand,
+    addDevice,
+    addDeviceType, deleteBrand,
+    deleteDeviceType,
+    setBrands,
+    setDevices,
+    setDeviceTypes
+} from "../../../actions/device";
 
 const AddZone = (props) => {
 
@@ -29,7 +37,7 @@ const AddZone = (props) => {
     useEffect(()=> {
         dispatch(setDeviceTypes())
         dispatch(setBrands())
-        dispatch(setDevices())
+        // dispatch(setDevices())
     },[])
 
     function addBrandClick() {
@@ -51,20 +59,30 @@ const AddZone = (props) => {
         setNewDeviceBrands(brands.filter(brand => brand.deviceTypeName == newDeviceTypeSelectRef.current.options[newDeviceTypeSelectRef.current.selectedIndex].innerText))
     }
 
+    function deleteBrandClick() {
+        dispatch(deleteBrand(brandInputRef.current.value,
+            deviceTypeSelectRef.current.options[deviceTypeSelectRef.current.selectedIndex].innerText))
+    }
     return (
         <div className="addzone">
             <div className="addzone-header">Новый вид устройства</div>
             <div className="addzone-type">
                 <Input reference={deviceTypeInputRef} placeholder="Введите новый вид устройства..." width="100%" margin="10px"/>
-                <Button click={()=>dispatch(addDeviceType(deviceTypeInputRef.current.value))} text="Добавить"/>
+                <div>
+                    <Button click={()=>dispatch(deleteDeviceType(deviceTypeInputRef.current.value))} text="Удалить"/>
+                    <Button click={()=>dispatch(addDeviceType(deviceTypeInputRef.current.value))} text="Добавить"/>
+                </div>
             </div>
 
 
             <div className="addzone-header">Новый Брэнд</div>
             <div className="addzone-brand">
                 <Select reference={deviceTypeSelectRef} list={deviceTypes}/>
-                <Input reference={brandInputRef} placeholder="Введите новый брэнд..." width="100%" margin="10px"/>
-                <Button click={addBrandClick}  text="Добавить"/>
+                <Input id="input" reference={brandInputRef} placeholder="Введите новый брэнд..." width="100%" margin="10px"/>
+                <div>
+                    <Button click={deleteBrandClick}  text="Удалить"/>
+                    <Button click={addBrandClick}  text="Добавить"/>
+                </div>
             </div>
 
             <div className="addzone-header">Новое устройство</div>
@@ -77,7 +95,10 @@ const AddZone = (props) => {
                     <Input reference={priceInputRef} placeholder="Введите цену..." width="49%" margin="10px"/>
                     <Input reference={fileInputRef} placeholder="Выберите файл" type="file" width="49%" margin="10px"/>
                 </div>
-                <Button click={addDeviceClick} text="Добавить"/>
+                <div>
+                    <Button click={addDeviceClick} text="Удалить"/>
+                    <Button click={addDeviceClick} text="Добавить"/>
+                </div>
             </div>
 
             <div className="addzone-header">Новое cвойство</div>

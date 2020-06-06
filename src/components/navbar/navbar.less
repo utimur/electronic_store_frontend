@@ -14,6 +14,10 @@
     font-size: 1.2em;
     font-weight: 500;
     color: white;
+
+    &-name{
+      cursor: pointer;
+    }
     &-logo {
       background: url("../../assets/img/logo.png") center center no-repeat;
       background-size: cover;
@@ -32,6 +36,11 @@
         width: 30px;
         background-size: cover;
         cursor: pointer;
+        transition: 0.5s;
+        &:hover {
+          width: 35px;
+          height: 35px;
+        }
       }
       &-busket {
         background-image: url("../../assets/img/busket.png");

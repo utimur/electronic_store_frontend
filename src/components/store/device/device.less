@@ -1,0 +1,71 @@
+@import "../../../utils/colors";
+
+.device {
+  display: flex;
+  width: 33%;
+  margin-bottom: 15px;
+  justify-content: center;
+  &-flex {
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    width: 225px;
+    position: relative;
+    &-btns {
+      width: fit-content;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      display: flex;
+
+      &-basket {
+          background: url("../../../assets/img/busket-device.png") no-repeat center center;
+          background-size: cover;
+          width: 32px;
+          height: 32px;
+          cursor: pointer;
+        }
+      &-favour {
+        background: url("../../../assets/img/favourites-device.png") no-repeat center center;
+        background-size: cover;
+        width: 32px;
+        height: 32px;
+        margin-left: 10px;
+        cursor: pointer;
+      }
+
+    }
+    img{
+      height: 200px;
+      width: 200px;
+      object-fit: cover;
+      object-position: center;
+    }
+    &-desc {
+      margin-top: 3px;
+      display: flex;
+      font-size: 0.8em;
+
+      &-star {
+        margin-left: auto;
+        margin-right: 3px;
+        height: 20px;
+        width: 20px;
+        background: url("../../../assets/img/star.png") no-repeat center center;
+        background-size: cover;
+      }
+      &-rate{
+        font-weight: 700;
+      }
+    }
+
+    &-name {
+      font-weight: 700;
+    }
+    &-price {
+      font-weight: 500;
+      color: gray;
+    }
+
+  }
+}

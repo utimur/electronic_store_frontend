@@ -20,6 +20,14 @@ export default function userReducer(state = defaultState, action){
                 ...state,
                 isAdmin: true
             }
+        case "SET_AVATAR":
+            return {
+                ...state,
+                currentUser: {
+                    ...state.currentUser,
+                    avatar: action.payload
+                }
+            }
         default:
             return state;
     }

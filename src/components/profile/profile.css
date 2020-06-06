@@ -1,0 +1,9 @@
+.profile {
+  width: 100%;
+  display: flex;
+}
+.profile button {
+  margin-left: 15px;
+  height: fit-content;
+}
+/*# sourceMappingURL=profile.css.map */

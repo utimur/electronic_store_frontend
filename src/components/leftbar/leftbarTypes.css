@@ -18,6 +18,10 @@
   width: 150px;
   text-align: center;
 }
+.leftbar-types a,
+.leftbar-brands a {
+  color: white;
+}
 .leftbar li {
   list-style-type: none;
   margin: 3px;

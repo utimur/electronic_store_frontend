@@ -11,6 +11,9 @@ export const auth = () => {
                 axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`
                 isAdminCheck(response.data.user, dispatch)
             }).then(response => dispatch(setDeviceTypes()))
+            .catch(error =>
+                delete axios.defaults.headers.common['Authorization']
+            )
     }
 }
 
@@ -59,4 +62,15 @@ const isAdminCheck = (user, dispatch) => {
             dispatch({type:"SET_ADMIN"})
         }
     })
+}
+
+export const setAvatar = (id, file) => {
+    const formData = new FormData()
+    formData.append("img", file);
+    formData.append("user_id", id);
+    return (dispatch) => {
+        axios.post(`${API_URL}/users/avatar`, formData)
+            .then(response => dispatch({type:"SET_AVATAR", payload: response.data.avatar}))
+            .catch(error => alert(error))
+    }
 }

@@ -17,6 +17,14 @@ export const addDeviceType = (deviceTypeName) => {
     }
 }
 
+export const deleteDeviceType = (deviceTypeName) => {
+    return (dispatch) => {
+        axios.delete(`${API_URL}/admin/devices/type?name=${deviceTypeName}`)
+            .then(response => dispatch({type: "DELETE_DEVICE_TYPE", payload: deviceTypeName}))
+            .catch(error => alert(error))
+    }
+}
+
 
 export const setBrands = () => {
     return (dispatch) => {
@@ -37,10 +45,36 @@ export const addBrand = (brandName, deviceTypeName) => {
     }
 }
 
-
-export const setDevices = () => {
+export const deleteBrand = (brandName, deviceTypeName) => {
     return (dispatch) => {
-        axios.get(`${API_URL}/devices`)
+        axios.delete(`${API_URL}/admin/devices/brand?name=${brandName}&type_name=${deviceTypeName}`)
+            .then(response => dispatch({type: "DELETE_BRAND", payload: {brandName, deviceTypeName}}))
+            .catch(error => alert(error.message))
+    }
+}
+
+
+
+
+export const setDevices = (page, typeId = 0, brandId = 0 ) => {
+    return (dispatch) => {
+        axios.get(`${API_URL}/devices/pagination?page=${page}&type_id=${typeId}&brand_id=${brandId}`)
+            .then(response => dispatch({type:"SET_DEVICES", payload: response.data}))
+            .catch(error => alert(error))
+    }
+}
+
+export const setDevicesByType = (typeId) => {
+    return (dispatch) => {
+        axios.get(`${API_URL}/devices/${typeId}`)
+            .then(response => dispatch({type:"SET_DEVICES", payload: response.data}))
+            .catch(error => alert(error))
+    }
+}
+
+export const setDevicesByBrand = (typeId, brandId) => {
+    return (dispatch) => {
+        axios.get(`${API_URL}/devices/${typeId}/${brandId}`)
             .then(response => dispatch({type:"SET_DEVICES", payload: response.data}))
             .catch(error => alert(error))
     }
@@ -59,3 +93,22 @@ export const addDevice = (device) => {
             .catch(error => alert(error))
     }
 }
+
+export const setBrandsVisible = (bool) => {
+    return (dispatch) => {
+        dispatch({type:"SET_BRANDS_VISIBLE", payload:bool})
+    }
+}
+
+export const setSelectedType = (type) => {
+    return (dispatch) => {
+        dispatch({type:"SET_SELECTED_TYPE", payload:type})
+    }
+}
+
+export const setCurrentPage = (page) => {
+    return (dispatch) => {
+        dispatch({type:"SET_CURRENT_PAGE", payload:page})
+    }
+}
+
