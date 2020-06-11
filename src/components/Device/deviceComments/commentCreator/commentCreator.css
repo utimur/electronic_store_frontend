@@ -1,0 +1,42 @@
+.creator {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.creator textarea {
+  width: 100%;
+  margin: 10px 0;
+  resize: none;
+  height: 100px;
+  padding: 8px;
+  border: 2px solid #ba66f4;
+  border-radius: 14px;
+}
+.creator textarea:focus,
+.creator textarea:active {
+  outline: none;
+}
+.creator-rate {
+  display: flex;
+  align-items: center;
+}
+.creator-rate img {
+  width: 30px;
+  height: 30px;
+}
+.creator button {
+  margin-left: auto;
+}
+.comment-auth {
+  margin: 20px 0;
+  background: #f1f1f1;
+  border-radius: 14px;
+  padding: 20px;
+}
+.comment-auth p {
+  font-size: 1.1em;
+}
+.comment-auth p:first-child {
+  font-weight: 500;
+}
+/*# sourceMappingURL=commentCreator.css.map */

@@ -8,11 +8,6 @@ import thunk from "redux-thunk";
 import axios from 'axios';
 import {composeWithDevTools} from 'redux-devtools-extension';
 
-if (localStorage.getItem("token") != "null") {
-    axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
-}
-
-
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)))
 
 ReactDOM.render(

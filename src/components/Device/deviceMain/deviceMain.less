@@ -1,0 +1,67 @@
+@import "../../../utils/colors";
+.device-top {
+  width: 100%;
+  &-name {
+    font-size: 1.8em;
+    font-weight: 500;
+  }
+  &-flex {
+    display: flex;
+    justify-content: space-between;
+    &-left {
+      display: flex;
+      flex-direction: column;
+      img {
+        width: 350px;
+        height: 350px;
+      }
+      &-bottom {
+        display: flex;
+        align-items: center;
+        &-img {
+          height: 30px;
+          width: 30px;
+          background: url("../../../assets/img/star.png") no-repeat center center;
+          background-size: cover;
+          margin-right: 3px;
+        }
+        &-rate, &-comments {
+          font-weight: 500;
+        }
+        &-comments {
+          margin-left: 200px;
+        }
+      }
+    }
+
+    &-right {
+      margin-top: 50px;
+      background: @main-color;
+      box-shadow: 3px 3px 4px 0px rgba(50, 50, 50, 0.5);
+      height: fit-content;
+      padding: 30px 10px;
+      border-radius: 8px;
+      &-price {
+        font-size: 1.4em;
+        font-weight: 500;
+        color: white;
+      }
+
+      &-basket {
+        margin: 50px 0;
+      }
+
+      &-basket, &-favour {
+        cursor: pointer;
+        background: white;
+        color: @main-color;
+        font-weight: 500;
+        font-size: 1.4em;
+        text-align: center;
+        padding: 10px;
+        border-radius: 18px;
+      }
+    }
+
+  }
+}

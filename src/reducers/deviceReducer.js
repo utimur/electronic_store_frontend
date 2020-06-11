@@ -1,3 +1,6 @@
+const SET_CURRENT_DEVICE = "SET_CURRENT_DEVICE"
+const ADD_COMMENT = "ADD_COMMENT"
+
 const defaultState = {
     devices: [],
     deviceTypes:[],
@@ -7,6 +10,10 @@ const defaultState = {
     currentPage: 1,
     totalCount: 0,
     countOnPage:9,
+    currentDevice: {
+        comments: [],
+        properties:[]
+    }
 }
 
 
@@ -75,7 +82,23 @@ export default function deviceReducer(state = defaultState, action) {
                 ...state,
                 totalCount: action.payload
             }
+        case SET_CURRENT_DEVICE:
+            return {
+                ...state,
+                currentDevice: action.payload
+            }
+        case ADD_COMMENT:
+            return {
+                ...state,
+                currentDevice: {
+                    ...state.currentDevice,
+                    comments: [...state.currentDevice.comments, action.payload]
+                }
+            }
         default:
             return {...state}
     }
 }
+
+export const setCurrentDevice = (payload) => { return {type: SET_CURRENT_DEVICE, payload: payload } }
+export const addComment = (payload) => { return {type: ADD_COMMENT, payload: payload } }

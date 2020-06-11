@@ -1,0 +1,22 @@
+.device-info {
+  margin-top: 20px;
+}
+.device-info .properties {
+  margin-top: 10px;
+  border: 1px solid #e6e6e6;
+}
+.device-info .properties .property {
+  padding: 5px 5px;
+}
+.device-info .properties .property span {
+  font-weight: 500;
+}
+.device-info .properties .property:nth-child(2n) {
+  background: #e6e6e6;
+}
+.header {
+  font-size: 1.6em;
+  font-weight: 500;
+  margin: 20px 0;
+}
+/*# sourceMappingURL=deviceDescription.css.map */

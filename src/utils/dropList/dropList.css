@@ -9,6 +9,7 @@
   align-items: center;
   border-radius: 10px;
   z-index: 999;
+  box-shadow: 3px 4px 5px 0px rgba(50, 50, 50, 0.75);
 }
 .droplist-item {
   color: white;

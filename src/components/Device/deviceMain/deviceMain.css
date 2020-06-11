@@ -1,0 +1,65 @@
+.device-top {
+  width: 100%;
+}
+.device-top-name {
+  font-size: 1.8em;
+  font-weight: 500;
+}
+.device-top-flex {
+  display: flex;
+  justify-content: space-between;
+}
+.device-top-flex-left {
+  display: flex;
+  flex-direction: column;
+}
+.device-top-flex-left img {
+  width: 350px;
+  height: 350px;
+}
+.device-top-flex-left-bottom {
+  display: flex;
+  align-items: center;
+}
+.device-top-flex-left-bottom-img {
+  height: 30px;
+  width: 30px;
+  background: url("../../../assets/img/star.png") no-repeat center center;
+  background-size: cover;
+  margin-right: 3px;
+}
+.device-top-flex-left-bottom-rate,
+.device-top-flex-left-bottom-comments {
+  font-weight: 500;
+}
+.device-top-flex-left-bottom-comments {
+  margin-left: 200px;
+}
+.device-top-flex-right {
+  margin-top: 50px;
+  background: #ba66f4;
+  box-shadow: 3px 3px 4px 0px rgba(50, 50, 50, 0.5);
+  height: fit-content;
+  padding: 30px 10px;
+  border-radius: 8px;
+}
+.device-top-flex-right-price {
+  font-size: 1.4em;
+  font-weight: 500;
+  color: white;
+}
+.device-top-flex-right-basket {
+  margin: 50px 0;
+}
+.device-top-flex-right-basket,
+.device-top-flex-right-favour {
+  cursor: pointer;
+  background: white;
+  color: #ba66f4;
+  font-weight: 500;
+  font-size: 1.4em;
+  text-align: center;
+  padding: 10px;
+  border-radius: 18px;
+}
+/*# sourceMappingURL=deviceMain.css.map */

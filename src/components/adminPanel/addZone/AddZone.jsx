@@ -7,14 +7,23 @@ import {useDispatch, useSelector} from "react-redux";
 import {
     addBrand,
     addDevice,
-    addDeviceType, deleteBrand,
-    deleteDeviceType,
+    addDeviceType, addProperty, deleteBrand,
+    deleteDeviceType, getAllDevices,
     setBrands,
     setDevices,
     setDeviceTypes
 } from "../../../actions/device";
 
 const AddZone = (props) => {
+
+    //property
+    const propertyDeviceTypeRef = useRef()
+    const propertyBrandRef = useRef()
+    const propertyDeviceRef = useRef()
+    const propertyNameRef = useRef()
+    const propertyDescRef = useRef()
+    const [propertyBrands, setPropertyBrands] = useState([])
+    const [propertyDevices, setPropertyDevices] = useState([])
 
 
     const deviceSelectRef = useRef()
@@ -27,17 +36,19 @@ const AddZone = (props) => {
     const brandInputRef = useRef()
     const priceInputRef = useRef()
     const fileInputRef = useRef()
+    const descriptionInputRef = useRef()
 
     const dispatch = useDispatch()
 
     const deviceTypes = useSelector(state => state.deviceReducer.deviceTypes)
     const brands = useSelector(state => state.deviceReducer.brands)
+    const devices = useSelector(state => state.deviceReducer.devices)
     const [newDeviceBrands, setNewDeviceBrands] = useState([])
 
     useEffect(()=> {
         dispatch(setDeviceTypes())
         dispatch(setBrands())
-        // dispatch(setDevices())
+        dispatch(getAllDevices())
     },[])
 
     function addBrandClick() {
@@ -51,6 +62,7 @@ const AddZone = (props) => {
             price: priceInputRef.current.value,
             brandName: newDeviceBrandSelectRef.current.options[newDeviceBrandSelectRef.current.selectedIndex].innerText,
             typeName: newDeviceTypeSelectRef.current.options[newDeviceTypeSelectRef.current.selectedIndex].innerText,
+            description: descriptionInputRef.current.value,
             file: fileInputRef.current.files[0] }
         dispatch(addDevice(device))
     }
@@ -59,10 +71,32 @@ const AddZone = (props) => {
         setNewDeviceBrands(brands.filter(brand => brand.deviceTypeName == newDeviceTypeSelectRef.current.options[newDeviceTypeSelectRef.current.selectedIndex].innerText))
     }
 
+    function changePropertyBrands() {
+        setPropertyBrands(brands.filter(brand => brand.deviceTypeName == propertyDeviceTypeRef.current.options[propertyDeviceTypeRef.current.selectedIndex].innerText))
+    }
+
+    function changePropertyDevices() {
+        setPropertyDevices(devices.filter(device => device.brandName == propertyBrandRef.current.options[propertyBrandRef.current.selectedIndex].innerText))
+    }
+
     function deleteBrandClick() {
         dispatch(deleteBrand(brandInputRef.current.value,
             deviceTypeSelectRef.current.options[deviceTypeSelectRef.current.selectedIndex].innerText))
     }
+
+    function deleteBrandClick() {
+        dispatch(deleteBrand(brandInputRef.current.value,
+            deviceTypeSelectRef.current.options[deviceTypeSelectRef.current.selectedIndex].innerText))
+    }
+
+    function addPropertyClick() {
+        addProperty(propertyDeviceTypeRef.current.options[propertyDeviceTypeRef .current.selectedIndex].innerText,
+            propertyBrandRef.current.options[propertyBrandRef .current.selectedIndex].innerText,
+            propertyDeviceRef.current.options[propertyDeviceRef .current.selectedIndex].innerText,
+            propertyNameRef.current.value,
+            propertyDescRef.current.value)
+    }
+
     return (
         <div className="addzone">
             <div className="addzone-header">Новый вид устройства</div>
@@ -95,6 +129,7 @@ const AddZone = (props) => {
                     <Input reference={priceInputRef} placeholder="Введите цену..." width="49%" margin="10px"/>
                     <Input reference={fileInputRef} placeholder="Выберите файл" type="file" width="49%" margin="10px"/>
                 </div>
+                <textarea ref={descriptionInputRef} placeholder="Описание товара..."/>
                 <div>
                     <Button click={addDeviceClick} text="Удалить"/>
                     <Button click={addDeviceClick} text="Добавить"/>
@@ -103,12 +138,14 @@ const AddZone = (props) => {
 
             <div className="addzone-header">Новое cвойство</div>
             <div className="addzone-properties">
-                <Select reference={deviceSelectRef} list={[{name:"123"}, {name:"456"}]}/>
+                <Select  onchange={()=>changePropertyBrands()} reference={propertyDeviceTypeRef} list={deviceTypes}/>
+                <Select onchange={()=>changePropertyDevices()} reference={propertyBrandRef} list={propertyBrands}/>
+                <Select reference={propertyDeviceRef} list={propertyDevices}/>
                 <div className="addzone-device-inputs">
-                    <Input placeholder="Свойство..." width="49%" margin="10px"/>
-                    <Input placeholder="Описание..." width="49%" margin="10px"/>
+                    <Input reference={propertyNameRef} placeholder="Свойство..." width="49%" margin="10px"/>
+                    <Input reference={propertyDescRef} placeholder="Описание..." width="49%" margin="10px"/>
                 </div>
-                <Button  text="Добавить"/>
+                <Button click={()=>addPropertyClick()}  text="Добавить"/>
             </div>
         </div>
     )

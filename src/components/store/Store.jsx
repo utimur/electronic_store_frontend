@@ -4,6 +4,7 @@ import Device from "./device/Device";
 import Leftbar from "../leftbar/Leftbar";
 import {useDispatch, useSelector} from "react-redux";
 import {setCurrentPage, setDevices, setDevicesByBrand, setDevicesByType} from "../../actions/device";
+import {createPages} from "../../config";
 
 const Store = (props) => {
 
@@ -17,22 +18,12 @@ const Store = (props) => {
     const storeRef = useRef();
     const pageCount = Math.ceil(totalCount / countOnPage);
     let pages = [];
-    for (let i = 1; i <= pageCount ; i++) {
-        pages.push(i)
-    }
+
+    createPages(pages, pageCount, currentPage)
+
 
     useEffect(()=> {
-        // if (typeId != null) {
-        //     if(brandId != null)
-        //     {
-        //         dispatch(setDevicesByBrand(typeId, brandId))
-        //     } else {
-        //         dispatch(setDevicesByType(typeId))
-        //     }
-        // } else {
-        //     dispatch(setDevices());
-        // }
-        dispatch(setDevices(currentPage,typeId, brandId))
+        dispatch(setDevices(currentPage,typeId, brandId, countOnPage))
     }, [currentPage, typeId, brandId])
 
 
@@ -44,7 +35,7 @@ const Store = (props) => {
             <div className="store-flex">
                 <div className="devices">
                     {devices.map(device =>
-                        <Device device={device}/>
+                        <Device history={props.history} device={device}/>
                     )}
                 </div>
                 <div className="pages">

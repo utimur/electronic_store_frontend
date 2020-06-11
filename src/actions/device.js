@@ -1,5 +1,6 @@
 import axios from 'axios';
-import {API_URL} from "../config";
+import {API_URL, } from "../config";
+import {addComment, setCurrentDevice} from "../reducers/deviceReducer";
 
 export const setDeviceTypes = () => {
     return (dispatch) => {
@@ -10,16 +11,18 @@ export const setDeviceTypes = () => {
 }
 
 export const addDeviceType = (deviceTypeName) => {
+    const Authorization = `Bearer ${localStorage.getItem("token")}`
     return (dispatch) => {
-        axios.post(`${API_URL}/admin/devices/type`, {name: deviceTypeName})
+        axios.post(`${API_URL}/admin/devices/type`, {name: deviceTypeName},  {headers:{Authorization: Authorization}})
             .then(response => dispatch({type: "ADD_DEVICE_TYPE", payload: response.data}))
             .catch(error => alert(error))
     }
 }
 
 export const deleteDeviceType = (deviceTypeName) => {
+    const Authorization = `Bearer ${localStorage.getItem("token")}`
     return (dispatch) => {
-        axios.delete(`${API_URL}/admin/devices/type?name=${deviceTypeName}`)
+        axios.delete(`${API_URL}/admin/devices/type?name=${deviceTypeName}`,  {headers:{Authorization: Authorization}})
             .then(response => dispatch({type: "DELETE_DEVICE_TYPE", payload: deviceTypeName}))
             .catch(error => alert(error))
     }
@@ -35,19 +38,21 @@ export const setBrands = () => {
 }
 
 export const addBrand = (brandName, deviceTypeName) => {
+    const Authorization = `Bearer ${localStorage.getItem("token")}`
     return (dispatch) => {
         axios.post(`${API_URL}/admin/devices/brand`, {
             name: brandName,
             deviceTypeName: deviceTypeName
-        })
+        },  {headers:{Authorization: Authorization}})
             .then(response => dispatch({type: "ADD_BRAND", payload: response.data}))
             .catch(error => alert(error))
     }
 }
 
 export const deleteBrand = (brandName, deviceTypeName) => {
+    const Authorization = `Bearer ${localStorage.getItem("token")}`
     return (dispatch) => {
-        axios.delete(`${API_URL}/admin/devices/brand?name=${brandName}&type_name=${deviceTypeName}`)
+        axios.delete(`${API_URL}/admin/devices/brand?name=${brandName}&type_name=${deviceTypeName}`,  {headers:{Authorization: Authorization}})
             .then(response => dispatch({type: "DELETE_BRAND", payload: {brandName, deviceTypeName}}))
             .catch(error => alert(error.message))
     }
@@ -56,9 +61,18 @@ export const deleteBrand = (brandName, deviceTypeName) => {
 
 
 
-export const setDevices = (page, typeId = 0, brandId = 0 ) => {
+export const setDevices = (page, typeId = 0, brandId = 0, countOnPage=9 ) => {
     return (dispatch) => {
-        axios.get(`${API_URL}/devices/pagination?page=${page}&type_id=${typeId}&brand_id=${brandId}`)
+        axios.get(`${API_URL}/devices/pagination?page=${page}&count=${countOnPage}&type_id=${typeId}&brand_id=${brandId}` )
+            .then(response => dispatch({type:"SET_DEVICES", payload: response.data}))
+            .catch(error => alert(error))
+    }
+}
+
+export const getAllDevices = () => {
+    const Authorization = `Bearer ${localStorage.getItem("token")}`
+    return (dispatch) => {
+        axios.get(`${API_URL}/admin/devices`, {headers:{Authorization: Authorization}} )
             .then(response => dispatch({type:"SET_DEVICES", payload: response.data}))
             .catch(error => alert(error))
     }
@@ -81,14 +95,16 @@ export const setDevicesByBrand = (typeId, brandId) => {
 }
 
 export const addDevice = (device) => {
+    const Authorization = `Bearer ${localStorage.getItem("token")}`
     const formData = new FormData()
     formData.append("name", device.name)
     formData.append("price", device.price)
     formData.append("brandName", device.brandName)
     formData.append("typeName", device.typeName)
+    formData.append("description", device.description)
     formData.append("file", device.file)
     return (dispatch) => {
-        axios.post(`${API_URL}/admin/devices`, formData)
+        axios.post(`${API_URL}/admin/devices`, formData,  {headers:{Authorization: Authorization}})
             .then(response => dispatch({type: "ADD_DEVICE", payload: response.data}))
             .catch(error => alert(error))
     }
@@ -112,3 +128,36 @@ export const setCurrentPage = (page) => {
     }
 }
 
+export const getCurrentDevice = (id) => {
+    return (dispatch) => {
+        axios.get(`${API_URL}/devices/${id}`)
+            .then(response => dispatch(setCurrentDevice(response.data)))
+    }
+}
+
+export const addProperty = (typeName, brandName, deviceName, name, description) => {
+    const Authorization = `Bearer ${localStorage.getItem("token")}`
+    axios.post(`${API_URL}/admin/devices/property`, {
+        typeName:typeName,
+        brandName: brandName,
+        deviceName: deviceName,
+        name: name,
+        description: description,
+    }, {headers: {Authorization: Authorization}})
+        .then(response => console.log(response.data))
+        .catch(error => alert(error))
+}
+
+export const sendComment = (deviceId, userId, rate, text) => {
+    const Authorization = `Bearer ${localStorage.getItem("token")}`
+    return (dispatch) => {
+        axios.post(`${API_URL}/comments/add`, {
+            device:{id:deviceId},
+            user: {id: userId},
+            rating: rate,
+            text: text,
+        }, {headers: {Authorization: Authorization}})
+            .then(response => dispatch(addComment(response.data)))
+            .catch(error => alert(error))
+    }
+}

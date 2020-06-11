@@ -15,6 +15,12 @@
 .addzone-properties select {
   align-self: start;
 }
+.addzone-device textarea {
+  width: 100%;
+  margin-bottom: 10px;
+  resize: none;
+  height: 100px;
+}
 .addzone-device-inputs {
   width: 100%;
   display: flex;

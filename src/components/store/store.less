@@ -18,10 +18,7 @@
       color: gray;
       display: flex;
       margin-top: 15px;
-      .current-page {
-        font-weight: 900;
-        color: black;
-      }
+
 
       .page, .current-page {
         padding: 8px 16px;
@@ -30,7 +27,11 @@
         border-radius: 100px;
         cursor: pointer;
       }
-
+      .current-page {
+        font-weight: 900;
+        color: black;
+        border: 3px @main-color solid;
+      }
       .page {
         font-weight: 500;
       }

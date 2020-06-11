@@ -1,0 +1,63 @@
+@import "../../../../utils/colors";
+
+.comment {
+  display: flex;
+  margin-top: 30px;
+  padding-bottom: 20px;
+
+    &-avatar {
+      height: 70px;
+      width: 70px;
+      border-radius: 100px;
+      border: 3px solid @main-color;
+      object-position: center;
+      object-fit: cover;
+    }
+
+  &-flex {
+    width: 100%;
+    margin-left: 10px;
+    &-top {
+      display: flex;
+      width: 100%;
+      &-name {
+        margin-left: 4px;
+        font-weight: 500;
+        font-size: 1.2em;
+      }
+      &-date {
+        margin-left: auto;
+      }
+    }
+    &-stars {
+      display: flex;
+      img{
+        height: 30px;
+        width: 30px;
+      }
+
+    }
+    &-text{
+      margin-top: 10px;
+      word-break: break-word;
+    }
+
+    &-likes {
+      margin-top: 10px;
+      display: flex;
+      width: fit-content;
+      padding: 3px;
+      margin-left: auto;
+      align-items: center;
+      img {
+        height: 35px;
+        width: 35px;
+        margin-left: 10px;
+      }
+      span {
+        font-weight: 500;
+        font-size: 1.3em;
+      }
+    }
+  }
+}

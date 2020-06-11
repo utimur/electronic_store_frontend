@@ -1,0 +1,30 @@
+.rating {
+  display: flex;
+}
+.rating-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 300px;
+  background: url("../../../../assets/img/star-round.png") no-repeat center center;
+  background-size: cover;
+}
+.rating-img-rate {
+  font-size: 4.5em;
+  color: white;
+  font-weight: 700;
+}
+.rating-info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 50px;
+}
+.rating-info p {
+  font-weight: 500;
+}
+.rating-info button {
+  width: fit-content;
+  margin-top: auto;
+}
+/*# sourceMappingURL=rating.css.map */

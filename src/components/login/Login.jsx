@@ -22,7 +22,9 @@ const Login = (props) => {
 
     function loginClick() {
         dispatch(login(usernameRef, passwordRef))
+        props.history.goBack()
     }
+
 
     return (
         <div className="login">

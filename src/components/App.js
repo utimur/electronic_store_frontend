@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import './app.css';
 import Navbar from "./navbar/Navbar";
-import {BrowserRouter, Route} from "react-router-dom";
+import {BrowserRouter, Redirect, Route} from "react-router-dom";
 import Login from "./login/Login";
 import Profile from "./profile/Profile";
 import {useDispatch, useSelector} from "react-redux";
@@ -12,6 +12,7 @@ import AdminPanel from "./adminPanel/AdminPanel";
 import Store from "./store/Store";
 import Basket from "./basket/basket";
 import Favour from "./favour/Favour";
+import Device from "./Device/Device";
 
 export default function App() {
     const dispatch = useDispatch()
@@ -31,12 +32,14 @@ export default function App() {
         <BrowserRouter>
             <Route component={Navbar}/>
             <div className="wrap main-wrap">
+                <Route exact path="/" component={()=><Redirect to="/store"/>}/>
                 <Route path="/login" component={Login}/>
                 <Route path="/profile" component={Profile}/>
                 <Route path="/registration" component={Registration}/>
                 {isAuth && <Route path="/basket" component={Basket}/>}
                 {isAuth && <Route path="/favour" component={Favour}/>}
                 <Route exact path="/store/" component={Store}/>
+                <Route exact path="/device/:id" component={Device}/>
                 <Route exact path="/store/:type" component={Store}/>
                 <Route exact path="/store/:type/:brand" component={Store}/>
                 {isAdmin && <Route path="/admin" component={AdminPanel}/>}

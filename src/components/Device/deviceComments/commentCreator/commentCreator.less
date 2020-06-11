@@ -1,0 +1,51 @@
+@import "../../../../utils/colors";
+
+
+.creator {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  textarea {
+    width: 100%;
+    margin: 10px 0;
+    resize: none;
+    height: 100px;
+    padding: 8px;
+    border: 2px solid @main-color;
+    border-radius: 14px;
+
+    &:focus, &:active {
+      outline: none;
+    }
+  }
+
+  &-rate {
+    display: flex;
+    align-items: center;
+
+    img {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  button {
+    margin-left: auto;
+  }
+}
+
+
+.comment-auth {
+  margin:20px 0;
+  background: #f1f1f1;
+  border-radius: 14px;
+  padding: 20px;
+  p{
+    font-size: 1.1em;
+    &:first-child {
+      font-weight: 500;
+    }
+  }
+
+}

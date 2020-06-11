@@ -11,6 +11,9 @@
   width: 225px;
   position: relative;
 }
+.device-flex:hover {
+  border-bottom: 1px solid black;
+}
 .device-flex-btns {
   width: fit-content;
   position: absolute;
@@ -38,6 +41,7 @@
   width: 200px;
   object-fit: cover;
   object-position: center;
+  cursor: pointer;
 }
 .device-flex-desc {
   margin-top: 3px;

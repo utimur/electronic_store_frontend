@@ -5,12 +5,16 @@
   width: 33%;
   margin-bottom: 15px;
   justify-content: center;
+
   &-flex {
     padding: 5px;
     display: flex;
     flex-direction: column;
     width: 225px;
     position: relative;
+    &:hover {
+      border-bottom: 1px solid black;
+    }
     &-btns {
       width: fit-content;
       position: absolute;
@@ -19,12 +23,12 @@
       display: flex;
 
       &-basket {
-          background: url("../../../assets/img/busket-device.png") no-repeat center center;
-          background-size: cover;
-          width: 32px;
-          height: 32px;
-          cursor: pointer;
-        }
+        background: url("../../../assets/img/busket-device.png") no-repeat center center;
+        background-size: cover;
+        width: 32px;
+        height: 32px;
+        cursor: pointer;
+      }
       &-favour {
         background: url("../../../assets/img/favourites-device.png") no-repeat center center;
         background-size: cover;
@@ -40,11 +44,13 @@
       width: 200px;
       object-fit: cover;
       object-position: center;
+      cursor: pointer;
     }
     &-desc {
       margin-top: 3px;
       display: flex;
       font-size: 0.8em;
+
 
       &-star {
         margin-left: auto;

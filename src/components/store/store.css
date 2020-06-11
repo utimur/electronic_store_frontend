@@ -18,10 +18,6 @@
   display: flex;
   margin-top: 15px;
 }
-.store .store-flex .pages .current-page {
-  font-weight: 900;
-  color: black;
-}
 .store .store-flex .pages .page,
 .store .store-flex .pages .current-page {
   padding: 8px 16px;
@@ -29,6 +25,11 @@
   border: 2px #ba66f4 solid;
   border-radius: 100px;
   cursor: pointer;
+}
+.store .store-flex .pages .current-page {
+  font-weight: 900;
+  color: black;
+  border: 3px #ba66f4 solid;
 }
 .store .store-flex .pages .page {
   font-weight: 500;

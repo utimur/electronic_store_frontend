@@ -6,7 +6,7 @@ const Select = (props) => {
     const ref = props.reference
 
     return (
-            <select onChange={props.onchange} ref={ref}>
+            <select onSelect={props.onselect}  onChange={props.onchange} ref={ref}>
                 {props.list.map(item =>
                     <option>{item.name}</option>
                 )}

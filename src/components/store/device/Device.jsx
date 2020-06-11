@@ -12,7 +12,7 @@ const Device = (props) => {
                     <div className="device-flex-btns-basket"></div>
                     <div className="device-flex-btns-favour"></div>
                 </div>
-                <img src={`data:image/jpeg;base64,${device.image}`} alt="asfafs"/>
+                <img src={`data:image/jpeg;base64,${device.image}`} onClick={()=>props.history.push(`/device/${device.id}`)} alt="asfafs"/>
                 <div className="device-flex-desc">
                     <div className="device-flex-desc-brand">{device.brandName}</div>
                     <div className="device-flex-desc-star"/>
