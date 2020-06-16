@@ -15,8 +15,8 @@ const DeviceMain = () => {
                     <img src={`data:image/jpeg;base64,${currentDevice.image}`} alt=""/>
                     <div className="device-top-flex-left-bottom">
                         <div className="device-top-flex-left-bottom-img"/>
-                        <div className="device-top-flex-left-bottom-rate">{currentDevice.rating}</div>
-                        <div className="device-top-flex-left-bottom-comments">{currentDevice.comments.length} отзывов</div>
+                        <div className="device-top-flex-left-bottom-rate">{currentDevice.rating.toFixed(1)}</div>
+                        <div className="device-top-flex-left-bottom-comments">отзывов: {currentDevice.comments.length}</div>
                     </div>
                 </div>
                 <div className="device-top-flex-right">

@@ -67,6 +67,7 @@
   background: white no-repeat center center;
   background-size: cover;
   border-radius: 100px;
+  border: white 1px solid;
   position: relative;
 }
 .navbar-flex-right-logout .droplist {

@@ -10,7 +10,10 @@ export const auth = () => {
                 dispatch({type:"AUTH", payload: response.data.user})
                 localStorage.setItem("token", response.data.token)
                 isAdminCheck(response.data.user, dispatch)
-            }).then(response => dispatch(setDeviceTypes()))
+                localStorage.setItem("id", response.data.user.id)
+            })
+            .then(response => dispatch(setDeviceTypes()))
+            .catch(error => localStorage.setItem("id", 0))
     }
 }
 
@@ -24,6 +27,8 @@ export const login = (usernameRef, passwordRef) => {
                 dispatch({type:"AUTH", payload: response.data.user})
                 localStorage.setItem("token", response.data.token)
                 isAdminCheck(response.data.user, dispatch)
+                localStorage.setItem("id", response.data.user.id)
+
             })
             .catch(error =>alert(error))
     }
@@ -36,6 +41,7 @@ export const registration = (user) => {
             .then(response => {
                 dispatch({type:"AUTH", payload: response.data.user})
                 localStorage.setItem("token", response.data.token)
+                localStorage.setItem("id", response.data.user.id)
                 isAdminCheck(response.data.user, dispatch)
             })
             .catch(error =>alert(error))

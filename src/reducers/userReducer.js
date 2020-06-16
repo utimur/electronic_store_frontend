@@ -1,6 +1,6 @@
 const defaultState = {
     isAuth: false,
-    currentUser:{},
+    currentUser:{id:0,},
     isAdmin: false,
 }
 
@@ -14,6 +14,7 @@ export default function userReducer(state = defaultState, action){
             }
         case "LOGOUT":
             localStorage.setItem("token", null)
+            localStorage.setItem("id", null)
            return defaultState
         case "SET_ADMIN":
             return {

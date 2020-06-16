@@ -11,10 +11,11 @@ const Device = (props) => {
 
     const deviceId = props.match.params.id
     const currentDevice = useSelector(state => state.deviceReducer.currentDevice)
+    const currentUser = useSelector(state => state.userReducer.currentUser)
     const dispatch = useDispatch()
 
     useEffect(()=> {
-        dispatch(getCurrentDevice(deviceId))
+        dispatch(getCurrentDevice(deviceId, localStorage.getItem("id")))
     }, deviceId)
 
 

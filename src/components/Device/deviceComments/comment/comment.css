@@ -50,6 +50,7 @@
   height: 35px;
   width: 35px;
   margin-left: 10px;
+  cursor: pointer;
 }
 .comment-flex-likes span {
   font-weight: 500;

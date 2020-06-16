@@ -12,7 +12,7 @@ const CommentCreator = (props) => {
     const isAuth = useSelector(state => state.userReducer.isAuth)
     const currentUser = useSelector(state => state.userReducer.currentUser)
     const currentDevice = useSelector(state => state.deviceReducer.currentDevice)
-    const [starsCount, setStarsCount] = useState(0)
+    const [starsCount, setStarsCount] = useState(1)
     const stars = []
     const textRef = useRef();
     const dispatch = useDispatch()
@@ -37,7 +37,7 @@ const CommentCreator = (props) => {
 
     return (
         isAuth ?
-            <div className="creator">
+            <div className="creator" id="comment-creator">
                 <div className="header">Написать отзыв</div>
                 <div className="creator-rate">
                     Оцените товар

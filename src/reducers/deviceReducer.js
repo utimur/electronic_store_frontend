@@ -12,7 +12,8 @@ const defaultState = {
     countOnPage:9,
     currentDevice: {
         comments: [],
-        properties:[]
+        properties:[],
+        rating: 0
     }
 }
 
@@ -92,7 +93,8 @@ export default function deviceReducer(state = defaultState, action) {
                 ...state,
                 currentDevice: {
                     ...state.currentDevice,
-                    comments: [...state.currentDevice.comments, action.payload]
+                    comments: [...state.currentDevice.comments, action.payload.comment],
+                    rating: action.payload.rating
                 }
             }
         default:

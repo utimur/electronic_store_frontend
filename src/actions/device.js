@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {API_URL, } from "../config";
-import {addComment, setCurrentDevice} from "../reducers/deviceReducer";
+import {addComment, like, setCurrentDevice} from "../reducers/deviceReducer";
 
 export const setDeviceTypes = () => {
     return (dispatch) => {
@@ -128,10 +128,10 @@ export const setCurrentPage = (page) => {
     }
 }
 
-export const getCurrentDevice = (id) => {
-    return (dispatch) => {
-        axios.get(`${API_URL}/devices/${id}`)
-            .then(response => dispatch(setCurrentDevice(response.data)))
+export const getCurrentDevice = (id, userId) => {
+    return async (dispatch) => {
+        const response = await axios.get(`${API_URL}/devices/${id}?user_id=${userId}`)
+        dispatch(setCurrentDevice(response.data))
     }
 }
 
@@ -160,4 +160,18 @@ export const sendComment = (deviceId, userId, rate, text) => {
             .then(response => dispatch(addComment(response.data)))
             .catch(error => alert(error))
     }
+}
+
+export const setLike = (userId, commentId, setLikes, setIsLiked) => {
+    const Authorization = `Bearer ${localStorage.getItem("token")}`
+
+    axios.post(`${API_URL}/comments/like`, {
+        comment:{id:commentId},
+        user: {id: userId},
+    }, {headers: {Authorization: Authorization}})
+        .then(response => {
+            setLikes(response.data.likeCount)
+            setIsLiked(response.data.isLiked)
+        })
+        .catch(error => alert(error))
 }

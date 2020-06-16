@@ -35,7 +35,7 @@ const Store = (props) => {
             <div className="store-flex">
                 <div className="devices">
                     {devices.map(device =>
-                        <Device history={props.history} device={device}/>
+                        <Device basket={false} history={props.history} device={device}/>
                     )}
                 </div>
                 <div className="pages">

@@ -9,6 +9,7 @@ import axios from 'axios';
 import {composeWithDevTools} from 'redux-devtools-extension';
 
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)))
+localStorage.setItem("id", 0);
 
 ReactDOM.render(
   <Provider store={store}>
