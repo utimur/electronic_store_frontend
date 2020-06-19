@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import "./leftbarTypes.css";
 import {useDispatch, useSelector} from "react-redux";
-import {setBrands, setBrandsVisible, setCurrentPage, setDeviceTypes, setSelectedType} from "../../actions/device";
+import {setBrands, setBrandsVisible, setCurrentPage, getDeviceTypes, setSelectedType} from "../../actions/device";
 import {NavLink} from "react-router-dom";
 
 const Leftbar = (props) => {
@@ -13,7 +13,7 @@ const Leftbar = (props) => {
     const selectedType = useSelector(state => state.deviceReducer.selectedType)
 
     useEffect(()=>{
-        dispatch(setDeviceTypes())
+        dispatch(getDeviceTypes())
         dispatch(setBrands())
         dispatch(setCurrentPage(1))
     }, [])

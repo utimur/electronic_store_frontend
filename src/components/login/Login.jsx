@@ -29,10 +29,10 @@ const Login = (props) => {
     return (
         <div className="login">
             <div className="header">Авторизация</div>
-            <Input width={"100%"} margin={"10px"} type="text" reference={usernameRef} placeholder="Введите ваш username..."/>
-            <Input width={"100%"} margin={"10px"} type="password" reference={passwordRef} placeholder="Введите пароль..."/>
+            <Input text="Ваше имя" className="input-left" width={"100%"} margin={"10px"} type="text" reference={usernameRef} placeholder=""/>
+            <Input text="Ваш пароль" className="input-right" width={"100%"} margin={"10px"} type="password" reference={passwordRef} placeholder=""/>
             <div className="login-btns">
-                <div className="forget">Забыли пароль?</div>
+                <div onClick={()=>props.history.push("/recover")} className="forget">Забыли пароль?</div>
                 <Button click={loginClick} text="Вход"/>
             </div>
 

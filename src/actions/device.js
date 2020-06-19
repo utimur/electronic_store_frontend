@@ -1,18 +1,21 @@
 import axios from 'axios';
 import {API_URL, } from "../config";
-import {addComment, like, setCurrentDevice} from "../reducers/deviceReducer";
+import {addComment, like, setCurrentDevice, setDeviceTypes} from "../reducers/deviceReducer";
 
-export const setDeviceTypes = () => {
-    return (dispatch) => {
-        axios.get(`${API_URL}/devices/type`)
-            .then(response => dispatch({type:"SET_DEVICE_TYPES", payload: response.data}))
-            .catch(error => alert(error))
+export const getDeviceTypes = () => {
+    return async (dispatch) => {
+        try {
+            const response = await axios.get(`${API_URL}/devices/type`)
+            dispatch(setDeviceTypes(response.data))
+        }   catch (e) {
+            alert(e)
+        }
     }
 }
 
 export const addDeviceType = (deviceTypeName) => {
     const Authorization = `Bearer ${localStorage.getItem("token")}`
-    return (dispatch) => {
+    return async (dispatch) => {
         axios.post(`${API_URL}/admin/devices/type`, {name: deviceTypeName},  {headers:{Authorization: Authorization}})
             .then(response => dispatch({type: "ADD_DEVICE_TYPE", payload: response.data}))
             .catch(error => alert(error))

@@ -1,5 +1,6 @@
 const SET_CURRENT_DEVICE = "SET_CURRENT_DEVICE"
 const ADD_COMMENT = "ADD_COMMENT"
+const SET_DEVICE_TYPES = "SET_DEVICE_TYPES"
 
 const defaultState = {
     devices: [],
@@ -53,7 +54,7 @@ export default function deviceReducer(state = defaultState, action) {
                 ...state,
                 deviceTypes: [...state.deviceTypes, action.payload]
             }
-        case "SET_DEVICE_TYPES":
+        case SET_DEVICE_TYPES:
             return {
                 ...state,
                 deviceTypes: [...action.payload]
@@ -103,4 +104,5 @@ export default function deviceReducer(state = defaultState, action) {
 }
 
 export const setCurrentDevice = (payload) => { return {type: SET_CURRENT_DEVICE, payload: payload } }
+export const setDeviceTypes = (payload) => { return {type: SET_DEVICE_TYPES, payload: payload } }
 export const addComment = (payload) => { return {type: ADD_COMMENT, payload: payload } }

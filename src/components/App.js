@@ -13,6 +13,10 @@ import Store from "./store/Store";
 import Basket from "./basket/basket";
 import Favour from "./favour/Favour";
 import Device from "./Device/Device";
+import Recover from "./recover/Recover";
+import MailRecover from "./recover/MailRecover";
+import PopUpMessage from "../utils/popUpMessage/popUpMessage";
+import Order from "./order/Order";
 
 export default function App() {
     const dispatch = useDispatch()
@@ -36,13 +40,17 @@ export default function App() {
                 <Route path="/login" component={Login}/>
                 <Route path="/profile" component={Profile}/>
                 <Route path="/registration" component={Registration}/>
-                {isAuth && <Route path="/basket" component={Basket}/>}
+                <Route path="/basket" component={Basket}/>
                 {isAuth && <Route path="/favour" component={Favour}/>}
                 <Route exact path="/store/" component={Store}/>
+                <Route exact path="/recover/:token" component={Recover}/>
+                <Route exact path="/recover" component={MailRecover}/>
+                <Route exact path="/order" component={Order}/>
                 <Route exact path="/device/:id" component={Device}/>
                 <Route exact path="/store/:type" component={Store}/>
                 <Route exact path="/store/:type/:brand" component={Store}/>
                 {isAdmin && <Route path="/admin" component={AdminPanel}/>}
+                <PopUpMessage text="Товар был успешно добавлен в корзину"/>
             </div>
         </BrowserRouter>
     );

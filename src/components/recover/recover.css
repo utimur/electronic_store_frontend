@@ -1,0 +1,16 @@
+.recover {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 50px auto;
+  width: 40%;
+}
+.recover .header {
+  font-size: 1.2em;
+  font-weight: 500;
+}
+.recover button {
+  margin-left: auto;
+}
+/*# sourceMappingURL=recover.css.map */

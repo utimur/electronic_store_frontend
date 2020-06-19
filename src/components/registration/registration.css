@@ -1,9 +1,10 @@
+@import "../../utils/animation.css";
 .reg {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 100px auto;
+  margin: 50px auto;
   width: 40%;
 }
 .reg .header {

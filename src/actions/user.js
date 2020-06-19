@@ -1,6 +1,6 @@
 import axios from "axios";
 import {API_URL} from "../config";
-import {setDeviceTypes} from "./device";
+import {getDeviceTypes} from "./device";
 
 export const auth = () => {
     const Authorization = `Bearer ${localStorage.getItem("token")}`
@@ -12,7 +12,7 @@ export const auth = () => {
                 isAdminCheck(response.data.user, dispatch)
                 localStorage.setItem("id", response.data.user.id)
             })
-            .then(response => dispatch(setDeviceTypes()))
+            .then(response => dispatch(getDeviceTypes()))
             .catch(error => localStorage.setItem("id", 0))
     }
 }
@@ -66,4 +66,21 @@ export const setAvatar = (id, file) => {
             .then(response => dispatch({type:"SET_AVATAR", payload: response.data.avatar}))
             .catch(error => alert(error))
     }
+}
+
+export const recoverPassword = (pass1, pass2, token, history) => {
+    if (pass1 != pass2) {
+        alert("Пароли не равны");
+        return
+    }
+    return async (dispatch) => {
+        const response = await axios.post(`${API_URL}/mail/password`, {password:pass1}, {headers:{Authorization:`Bearer ${token}`}})
+        localStorage.setItem("token", response.data.token)
+        history.push("/store")
+        dispatch(auth());
+    }
+}
+
+export const sendMail = (mail) => {
+        return axios.get(`${API_URL}/mail/recovery?mail=${mail}`)
 }

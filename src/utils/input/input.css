@@ -1,7 +1,22 @@
+.input {
+  position: relative;
+}
 .input input {
   border: 2px solid #ba66f4;
   border-radius: 4px;
   width: 100%;
   padding: 5px 10px;
+}
+.input input:focus {
+  box-shadow: 0 0 5px #ba66f4;
+  outline: 3px solid #ba66f4;
+}
+.input-text {
+  position: absolute;
+  background: white;
+  top: -3px;
+  left: 20px;
+  color: gray;
+  font-weight: 500;
 }
 /*# sourceMappingURL=input.css.map */

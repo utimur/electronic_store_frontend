@@ -32,10 +32,10 @@ const Registration = (props) => {
     return (
         <div className="reg">
             <div className="header">Регистрация</div>
-            <Input width={"100%"} reference={usernameRef} margin={"10px"} type="text" placeholder="Введите username..."/>
-            <Input width={"100%"} reference={passwordRef} margin={"10px"} type="password" placeholder="Введите пароль..."/>
-            <Input width={"100%"} reference={mailRef} margin={"10px"} type="text" placeholder="Введите вашу почту..."/>
-            <Input width={"100%"} reference={numberRef} margin={"10px"} type="text" placeholder="Введите ваш номер телефона..."/>
+            <Input text="Введите username" className="input-right" width={"100%"} reference={usernameRef} margin={"10px"} type="text" placeholder=""/>
+            <Input text="Введите пароль" className="input-left" width={"100%"} reference={passwordRef} margin={"10px"} type="password" placeholder=""/>
+            <Input text="Введите почту" className="input-right" width={"100%"} reference={mailRef} margin={"10px"} type="text" placeholder=""/>
+            <Input text="Введите номер телефона" className="input-left" width={"100%"} reference={numberRef} margin={"10px"} type="text" placeholder=""/>
             <div className='reg-btns'>
                 <input type="checkbox"/>
                 <Button text="Завершить" click={signUpClick}/>

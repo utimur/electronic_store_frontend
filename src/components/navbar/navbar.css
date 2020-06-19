@@ -36,12 +36,6 @@
   width: 30px;
   background-size: cover;
   cursor: pointer;
-  transition: 0.5s;
-}
-.navbar-flex-right-busket:hover,
-.navbar-flex-right-favor:hover {
-  width: 35px;
-  height: 35px;
 }
 .navbar-flex-right-busket {
   background-image: url("../../assets/img/busket.png");

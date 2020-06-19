@@ -11,7 +11,7 @@ import {
     deleteDeviceType, getAllDevices,
     setBrands,
     setDevices,
-    setDeviceTypes
+    getDeviceTypes
 } from "../../../actions/device";
 
 const AddZone = (props) => {
@@ -46,7 +46,7 @@ const AddZone = (props) => {
     const [newDeviceBrands, setNewDeviceBrands] = useState([])
 
     useEffect(()=> {
-        dispatch(setDeviceTypes())
+        dispatch(getDeviceTypes())
         dispatch(setBrands())
         dispatch(getAllDevices())
     },[])

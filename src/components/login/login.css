@@ -1,9 +1,10 @@
+@import "../../utils/animation.css";
 .login {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 100px auto;
+  margin: 50px auto;
   width: 40%;
 }
 .login .header {
@@ -20,6 +21,7 @@
   font-size: 0.7em;
   font-weight: 700;
   color: gray;
+  cursor: pointer;
 }
 .login-btns button {
   margin-left: auto;

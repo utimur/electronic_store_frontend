@@ -1,0 +1,139 @@
+@keyframes input-anim-left {
+  0% {
+    transform: translateX(-100vh);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes input-anim-right {
+  0% {
+    transform: translateX(100vh);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes circle-anim {
+  0% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(-280px);
+  }
+}
+.order {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.order .order-flex {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+.order .order-flex .order-form,
+.order .order-flex .order-auth {
+  background: #f1f1f1;
+  width: 40%;
+  height: fit-content;
+  border-radius: 14px;
+  font-weight: 500;
+  padding: 20px;
+}
+.order .order-flex .order-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.order .order-flex .order-form .order-header {
+  align-self: center;
+}
+.order .order-flex .order-form button {
+  margin-top: 10px;
+}
+.order .order-flex .order-form textarea {
+  width: 100%;
+  resize: none;
+  height: 110px;
+  margin: 5px 0;
+  border: solid #ba66f4 2px;
+  border-radius: 4px;
+  padding: 4px 10px;
+}
+.order .order-flex .order-form textarea:focus {
+  box-shadow: 0 0 5px #ba66f4;
+  outline: 3px solid #ba66f4;
+}
+.order .order-flex .image {
+  height: 400px;
+  width: 300px;
+  border: #ba66f4 10px solid;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  margin-right: 50px;
+  box-shadow: 3px 3px 4px gray;
+}
+.order .order-flex .image .line {
+  margin-top: 35px;
+  height: 15px;
+  width: 250px;
+  box-shadow: 3px 3px 4px gray;
+  background: #ba66f4;
+}
+.order .order-flex .image .tick {
+  position: absolute;
+  height: 60px;
+  width: 7px;
+  background: #ba66f4;
+  bottom: 25px;
+  right: 53px;
+  transform: rotate(30grad);
+  box-shadow: 3px 3px 4px gray;
+}
+.order .order-flex .image .tick:after {
+  position: absolute;
+  content: "";
+  background-color: #ba66f4;
+  color: #ba66f4;
+  height: 30px;
+  width: 7px;
+  right: 13px;
+  bottom: -7px;
+  transform: rotate(-75grad);
+}
+.order .order-flex .image .circle {
+  height: 100px;
+  width: 100px;
+  margin-top: 20px;
+  margin-left: 150px;
+  border: 10px solid #ba66f4;
+  border-radius: 50%;
+  position: relative;
+  animation-name: order-anim;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+.order .order-flex .image .circle:before {
+  position: absolute;
+  content: " safsfa";
+  background: white;
+  color: white;
+  height: 30px;
+  width: 40px;
+  right: -10px;
+  transform: rotate(-30grad);
+}
+@keyframes order-anim {
+  0% {
+    transform: rotate(0grad);
+  }
+  100% {
+    transform: rotate(395grad);
+  }
+}
+/*# sourceMappingURL=order.css.map */

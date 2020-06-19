@@ -23,7 +23,7 @@ const Device = (props) => {
         <div className="device-main">
             <Leftbar/>
             <div className="device-wrap">
-                <DeviceMain/>
+                <DeviceMain history={props.history}/>
                 <DeviceDescription/>
                 <DeviceComments history={props.history}/>
             </div>

@@ -1,0 +1,25 @@
+@keyframes input-anim-left {
+  0% {
+    transform: translateX(-100vh);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes input-anim-right {
+  0% {
+    transform: translateX(100vh);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes basket-anim {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+/*# sourceMappingURL=animation.css.map */

@@ -13,6 +13,7 @@
 }
 .device-flex:hover {
   border-bottom: 1px solid black;
+  margin-bottom: -1px;
 }
 .device-flex-btns {
   width: fit-content;
@@ -28,12 +29,11 @@
   height: 32px;
   cursor: pointer;
 }
-.device-flex-btns-favour {
-  background: url("../../../assets/img/favourites-device.png") no-repeat center center;
+.device-flex-btns-delete {
+  background: url("../../../assets/img/delete.png") no-repeat center center;
   background-size: cover;
   width: 32px;
   height: 32px;
-  margin-left: 10px;
   cursor: pointer;
 }
 .device-flex img {
